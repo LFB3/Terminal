@@ -22,11 +22,11 @@ int main() {
     std::vector<std::string> userInputsplitstd;
     while (true) {
         // User Input
-        std::cout << "run:";
-        std::cin >> userInputstd;
+        std::cout << endl << "run:";
+        std::getline(std::cin, userInputstd);
         logs.push_back(userInputstd);
         // User Input to Lowercase
-        userInput = "0";
+        userInput = userInputstd;
         transform(userInputstd.begin(), userInputstd.end(), userInput.begin(), ::tolower);
 
         // Splitting the standart string
@@ -37,7 +37,7 @@ int main() {
         }
         // Splitting the lowercase string
         std::stringstream sss(userInput);
-        while (ss >> word) {
+        while (sss >> word) {
             userInputsplit.push_back(word);
         }
 
@@ -54,6 +54,6 @@ int main() {
         if (userInputsplit[0] == "calc" || userInputsplit[0] == "calculator") {
             output = calculator(userInputsplit);
         }
-        
+        cout << endl << output;
     }
 }
