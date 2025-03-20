@@ -4,7 +4,7 @@
 #include <string>
 #include <algorithm>
 
-int calculator(std::vector<std::string> userInput) {
+std::string calculator(std::vector<std::string> userInput) {
     int output = 0;
 
     if (userInput[0] == "calc" || userInput[0] == "calculator") {

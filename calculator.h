@@ -4,6 +4,6 @@
 #include <vector>
 #include <string>
 
-int calculator(std::vector<std::string> userInput);
+std::string calculator(std::vector<std::string> userInput);
 
 #endif
