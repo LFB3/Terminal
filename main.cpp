@@ -16,44 +16,34 @@ int main() {
     std::vector<std::string> logs;
 
     std::string userInput = "0";
-    std::string userInputstd = "0";
 
     std::vector<std::string> userInputsplit;
-    std::vector<std::string> userInputsplitstd;
     while (true) {
         // User Input
-        std::cout << endl << "run:";
-        std::getline(std::cin, userInputstd);
-        logs.push_back(userInputstd);
-        // User Input to Lowercase
-        userInput = userInputstd;
-        transform(userInputstd.begin(), userInputstd.end(), userInput.begin(), ::tolower);
+        std::cout << "run:";
+        std::getline(std::cin, userInput);
+        logs.push_back(userInput);
+        transform(userInput.begin(), userInput.end(), userInput.begin(), ::tolower);
 
-        // Splitting the standart string
-        std::stringstream ss(userInputstd);
-        std::string word;
-        while (ss >> word) {
-            userInputsplitstd.push_back(word);
+        // Splitting the user input
+        std::string s = "";
+        for (int i = 0; i < userInput.size(); i++) {
+            if (userInput[i] == ' ') {
+                userInputsplit.push_back(s);
+                s.clear();
+                continue;
+            }
+            s += userInput[i];
         }
-        // Splitting the lowercase string
-        std::stringstream sss(userInput);
-        while (sss >> word) {
-            userInputsplit.push_back(word);
-        }
+        userInputsplit.push_back(s);
 
-        // Using User Input
 
-        // Close the Terminal
+        // Commands
         if (userInput == "exit") {
             close;
         }
-
-        // Calculator with
-        // Calc or Calculator at beginning
-
-        if (userInputsplit[0] == "calc" || userInputsplit[0] == "calculator") {
+        if (userInputsplit[0] == "calc"|| userInputsplit[0] == "calculator") {
             output = calculator(userInputsplit);
         }
-        cout << endl << output;
     }
 }
