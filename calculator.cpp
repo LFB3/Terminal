@@ -16,7 +16,7 @@ std::string calculator(std::vector<std::string> userInput) {
         std::transform(lowerCase.begin(), lowerCase.end(), lowerCase.begin(), ::tolower);
         if (userInput[i] == "*" || userInput[i] == "x" || userInput[i] == "multiply") {
             userInput[i] = std::to_string(std::stoi(userInput[i - 1]) * std::stoi(userInput[i + 1]));
-            userInput.erase(userInput.begin() + i);
+            userInput.erase(userInput.begin() + i - 1);
             userInput.erase(userInput.begin() + i);
         }
     }
@@ -25,7 +25,7 @@ std::string calculator(std::vector<std::string> userInput) {
         std::transform(lowerCase.begin(), lowerCase.end(), lowerCase.begin(), ::tolower);
         if (userInput[i] == ":" || userInput[i] == "/" || userInput[i] == "divide") {
             userInput[i] = std::to_string(std::stoi(userInput[i - 1]) / std::stoi(userInput[i + 1]));
-            userInput.erase(userInput.begin() + i);
+            userInput.erase(userInput.begin() + i - 1);
             userInput.erase(userInput.begin() + i);
         }
     }
@@ -34,7 +34,7 @@ std::string calculator(std::vector<std::string> userInput) {
         std::transform(lowerCase.begin(), lowerCase.end(), lowerCase.begin(), ::tolower);
         if (userInput[i] == "-" || userInput[i] == "subtract") {
             userInput[i] = std::to_string(std::stoi(userInput[i - 1]) - std::stoi(userInput[i + 1]));
-            userInput.erase(userInput.begin() + i);
+            userInput.erase(userInput.begin() + i - 1);
             userInput.erase(userInput.begin() + i);
         }
     }
@@ -43,7 +43,7 @@ std::string calculator(std::vector<std::string> userInput) {
         std::transform(lowerCase.begin(), lowerCase.end(), lowerCase.begin(), ::tolower);
         if (userInput[i] == "+" || userInput[i] == "add") {
             userInput[i] = std::to_string(std::stoi(userInput[i - 1]) + std::stoi(userInput[i + 1]));
-            userInput.erase(userInput.begin() + i);
+            userInput.erase(userInput.begin() + i - 1);
             userInput.erase(userInput.begin() + i);
         }
     }
